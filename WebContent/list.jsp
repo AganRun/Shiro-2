@@ -23,6 +23,8 @@
 		<a href="${pageContext.request.contextPath }/user.jsp">-----------------User.jsp</a>
 	</shiro:hasRole>
 	
+	<br><br>
+	<a href="${pageContext.request.contextPath }/shiro/testShiroAnnotation">-----------------testShiroAnnotation</a>
 	
 	<br><br>
 	<a href="${pageContext.request.contextPath }/shiro/logout">-----------------Logout</a>

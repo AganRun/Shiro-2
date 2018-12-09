@@ -154,4 +154,15 @@
         </property>
     </bean>
     
+    <bean id="shiroService" class="com.agan.shiro.service.ShiroService"></bean>
+    
+    <!-- 自定义异常 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+			   <prop key="AuthorizationException">unauthorized</prop>  
+			</props>
+		</property>
+	</bean>
+    
 </beans>
