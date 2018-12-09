@@ -59,9 +59,9 @@ public class SecondRealm extends AuthenticatingRealm{
 		//	2). credentials: 密码
 		Object credentials = "fc1709d0a95a6be30bc5926fdb7f22f4";	//123456的普通MD5加密后
 		if("admin".equals(username)){
-			credentials = "ce2f6417c7e1d32c1d81a797ee0b499f87c5de06---";
+			credentials = "ce2f6417c7e1d32c1d81a797ee0b499f87c5de06";
 		}else if("user".equals(username)) {
-			credentials = "073d4c3ae812935f23cb3f2a71943f49e082a718---";
+			credentials = "073d4c3ae812935f23cb3f2a71943f49e082a718";
 		}
 		
 		//	3). realmName: 当前 realm 对象的name， 调用父类的 getName() 方法即可
