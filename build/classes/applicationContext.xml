@@ -31,6 +31,9 @@
     			<ref bean="secondRealm"/>
     		</list>
     	</property>
+    	
+    	<!-- remember me 过期时间，以秒为单位 -->
+    	<property name="rememberMeManager.cookie.maxAge" value="10"></property>
     </bean>
 
 
