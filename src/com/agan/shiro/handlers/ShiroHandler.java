@@ -1,0 +1,41 @@
+package com.agan.shiro.handlers;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+@RequestMapping("/shiro")
+public class ShiroHandler {
+	
+	@RequestMapping("/login")
+	public String login(@RequestParam("username") String username,
+			@RequestParam("password") String password) {
+		
+		Subject currentUser = SecurityUtils.getSubject();
+		
+		if(!currentUser.isAuthenticated()) {
+			//把用户名和密码封装为UsernamePasswordTocken对象
+			UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+			//remember
+			token.setRememberMe(true);
+			try {
+				//执行登录
+				currentUser.login(token);
+			//所有认证异常的父类
+			} catch (AuthenticationException e) {
+				System.out.println("登录失败" + e.getMessage());
+				return "login";
+			}
+		}
+		
+		
+		return "redirect:/list.jsp";
+	}
+	
+	
+}
